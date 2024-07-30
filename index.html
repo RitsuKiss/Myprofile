@@ -248,7 +248,7 @@
         <nav>
             <div class="logo">リツキ•リス</div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" onclick="alert()">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#social">Social</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -282,6 +282,9 @@
     <section class="bottom"><h1>Nanti kulanjutin lagi haha</h1></section>
 
     <script>
+        function alert() {
+            alert("anda sudah berada di halaman utama");
+        }
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
         });
