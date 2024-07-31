@@ -265,8 +265,8 @@
             <div class="logo">リツキ•リス</div>
             <ul class="nav-links">
                 <li><a href="#" onclick="Alert()" >Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#social">other</a></li>
+                <li><a href="#about" onclick="Upcoming()">About</a></li>
+                <li><a href="#social" onclick="Upcoming()">other</a></li>
                 <li><a href="https://forms.gle/HLeQY57f7CeQ16Wn8">Contact</a></li>
             </ul>
             <div class="search-container">
@@ -330,7 +330,12 @@
 
     <script>
         function Alert() {
-            alert("anda sudah berada di halaman utama");
+            alert("bang lu dah di halaman utama ngapain masih mau ke halaman utama dah aneh");
+            var audio = new Audio('Src/tolol.mp3');
+        }
+         function Upcoming() {
+            alert("sabar napa lagi di kerjain nih");
+              var audio = new Audio('Src/jangan.mp3');
         }
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('.nav-links').classList.toggle('active');
