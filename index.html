@@ -229,8 +229,8 @@ nav {
             <div class="more"><button id="infoLink" class="nav-link" href="#" onclick="showSection('info'); return false;">Selengkapnya -></button></div>
             <div class="socmed">
               <button class="instagram" onclick="openig()"></button>
-              <button class="discord" onclick="openig()"></button>
-              <button class="reality" onclick="openig()"></button>
+              <button class="discord" onclick="opendc()"></button>
+              <button class="reality" onclick="openrt()"></button>
               </div>
     </div>
     </section>
@@ -259,6 +259,15 @@ nav {
             const menu = document.getElementById('navbar');
             menu.classList.toggle('open');
         });
+        function openig() {
+            window.location.href = 'https://www.google.com';
+        }
+        function opendc() {
+            window.location.href = 'https://www.google.com';
+        }
+        function openrt() {
+            window.location.href = 'https://www.google.com';
+        }
         function showSection(sectionId) {
             var sections = document.querySelectorAll('.section');
             sections.forEach(function(section) {
