@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my-profile</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow-x: hidden;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+nav {
+    margin: 50px 30px;
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.section {
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.section.active {
+    display: flex;
+}
+.nav-link {
+    padding: 10px 20px;
+    margin: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+.nav-link.active {
+    border-bottom: 3px solid #ffffff;
+    color: #ffffff;
+}
+.nav img {
+    margin: 1em;
+}
+.menu {
+    color:white;
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+/*home css v*/
+#home {
+    background-image: url(src/home.png);
+    background-attachment: fixed;
+    background-position: right;
+    background-size: cover;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 16%;
+    gap: 0;
+}
+.date, .title, .sub, .desc, .more, .socmed {
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.title {
+    transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    font-size: 50px;
+}
+.sub {
+    font-size: 25px;
+}
+.desc {
+    max-width: 45%;
+    font-size: 20px;
+}
+.more button {
+    margin: 1rem;
+    background-color: #ffff;
+    color: black;
+    border-radius: 40px;
+}
+.instagram, .discord, .reality {
+    margin: 10px;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20%;
+}
+.instagram {
+    background-image: url(src/instagram.png);
+}
+.discord {
+    background-image: url(src/discord.png);
+}
+.reality {
+    background-image: url(src/reality.jpg);
+}
+@media (max-width: 768px) {
+  nav{
+    display: flex;
+    gap:1rem;
+  }
+            .navbar {
+                display: flex;
+                position: fixed;
+                left: -100%;
+                top: 10px;
+                height: 6%;
+                width: 100%;
+                background: transparent;
+                transition: left 0.3s ease;
+            }
+            .navbar img{
+              position:relative;
+              justify-content: center;
+            }
+
+            .navbar a {
+                display: block;
+                font-size: 10px;
+                padding: 1rem;
+                border-bottom: 1px solid #444;
+            }
+            .nav-link {
+    padding: 0px 5px;
+    margin: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #ffffff;
+    border: 1px solid transparent;
+}
+.nav-link.active {
+    border-bottom: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+            .menu {
+                display: flex;
+                position: fixed;
+                right: 5%;
+                top: 2.5%;
+                font-weight: bold;
+                padding: 10px;
+                border: 0;
+                background: transparent;
+                border-radius: 20px;
+            }
+            .menu:active{
+              rotate: 180deg;
+            }
+
+            .navbar.open {
+                left: 0;
+            }
+            .date, .title, .sub, .desc, .more, .socmed {
+    color: white;
+    margin: 0;
+    padding: 0;
+}#home {
+    background-image: url(src/Mhome.png);
+    background-attachment: fixed;
+    background-position: top;
+    background-size: cover;
+}
+
+.home{
+  position: absolute;
+  bottom: 20px;
+  margin: 10px;
+}
+.title {
+    font-size: 30px;
+}
+.sub {
+    font-size: 20px;
+}
+.desc {
+    max-width: 97%;
+    font-size: 14px;
+}
+            
+        }
+/*home css^*/
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="navbar" id="navbar">
+        <a id="homeLink" class="nav-link" href="#" onclick="showSection('home'); return false;">Home</a>
+        <a id="infoLink" class="nav-link" href="#" onclick="showSection('info'); return false;">Info</a>
+        <a id="aboutLink" class="nav-link" href="#" onclick="showSection('about'); return false;">About</a>
+        <a id="contactLink" class="nav-link" href="#" onclick="showSection('contact'); return false;">Contact</a>
+    </div>
+    <button class="menu" id="menu">
+            ▽
+        </button>
+    </nav>
+
+    <!-- Sections -->
+    <section id="home" class="section active">
+        <div class="home">
+            <div class="date">
+                <h6>01/04</h6>
+            </div>
+            <div class="title">
+            <h1>Ritsuki Riss</h1>
+            </div>
+            <div class="sub"><h3>リツキ•リス</h3></div>
+            <div class="desc">seperti halnya tupai yg melompat ada kalanya dia terjatuh, seperti halnya sinar bulan akan terkalahkan oleh sinar matahari, Ritsuki Riss adalah seekor tupai bulan yg akan menjadi siapapun yg dia mau. walaupun jalan memiliki banyak halangan, maju dan mencari jalan lain adalah keputusan yg terbaik</div>
+            <div class="more"><button id="infoLink" class="nav-link" href="#" onclick="showSection('info'); return false;">Selengkapnya -></button></div>
+            <div class="socmed">
+              <button class="instagram" onclick="openig()"></button>
+              <button class="discord" onclick="openig()"></button>
+              <button class="reality" onclick="openig()"></button>
+              </div>
+    </div>
+    </section>
+    <section id="about" class="section">
+        <div>
+            <h1>belum ygy</h1>
+            <p>bingung mau di gimanain.</p>
+        </div>
+    </section>
+    <section id="info" class="section">
+        <div>
+          <h1>belum ygy</h1>
+            <p>bingung mau di gimanain.</p>
+
+        </div>
+    </section>
+    <section id="contact" class="section">
+        <div>
+            <h1>belum ygy</h1>
+            <p>bingung mau di gimanain.</p>
+        </div>
+    </section>
+
+    <script>
+      document.getElementById('menu').addEventListener('click', function () {
+            const menu = document.getElementById('navbar');
+            menu.classList.toggle('open');
+        });
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('.section');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+           var sectionToShow = document.getElementById(sectionId);
+            sectionToShow.classList.add('active');
+
+           var links = document.querySelectorAll('.nav-link');
+            links.forEach(function(link) {
+                link.classList.remove('active');
+            });
+
+           var linkToActivate = document.getElementById(sectionId + 'Link');
+            linkToActivate.classList.add('active');
+        }
+
+       document.addEventListener('DOMContentLoaded', function() {
+            showSection('home');
+        });
+    </script>
+</body>
+</html>
