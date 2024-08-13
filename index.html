@@ -21,7 +21,7 @@ nav {
     margin: 50px 30px;
     display: flex;
     justify-content: flex-start;
-    padding: 10px;
+    padding: 10px;                          
     position: fixed;
     top: 0;
     left: 0;
@@ -114,6 +114,78 @@ nav {
 .reality {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWeT0tCgjtlrsLsq_Wx6DTgeRR0Eu9-QTfoA&s);
 }
+.banner-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            align-items: center;
+        }
+
+        .banner {
+            border-radius: 20px;
+            margin: 6% 20px 0;
+            max-width: 98%;
+            height:auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner-images {
+            display: flex;
+            transition: transform 1s ease-in-out;
+        }
+
+        .banner-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .banner-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .class-container {
+            display: flex;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .class-item {
+            border-radius: 20px;
+            flex: 1; /* Mengisi ruang yang tersedia */
+            margin: 10px 10px; /* Jarak antar elemen */
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Include padding and border in element's total width and height */
+        }
 @media (max-width: 768px) {
   nav{
     display: flex;
@@ -198,6 +270,13 @@ nav {
     max-width: 97%;
     font-size: 14px;
 }
+
+.class-container {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+}
             
         }
 /*home css^*/
@@ -237,20 +316,33 @@ nav {
               </div>
     </div>
     </section>
-    <section id="about" class="section">
-        <div>
-            <h1>belum ygy</h1>
-            <p>bingung mau di gimanain.</p>
-        </div>
-    </section>
     <section id="info" class="section">
+        <div class="banner-container">
+            <div class="banner">
+                <div class="banner-images">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1ppyur3f22ov2lqNqvCD4cxeST7B7gJW5w&s" alt="Gambar 1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1ppyur3f22ov2lqNqvCD4cxeST7B7gJW5w&s" alt="Gambar 2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1ppyur3f22ov2lqNqvCD4cxeST7B7gJW5w&s" alt="Gambar 3">
+                </div>
+                <button class="banner-button prev">&#10094;</button>
+                <button class="banner-button next">&#10095;</button>
+            </div>
+        </div>
+        <main>
+            <div class="class-container">
+                <div class="class-item">Kelas 1</div>
+                <div class="class-item">Kelas 2</div>
+                <div class="class-item">Kelas 3</div>
+            </div>
+    </section>
+    <section id="work" class="section">
         <div>
           <h1>belum ygy</h1>
             <p>bingung mau di gimanain.</p>
 
         </div>
     </section>
-    <section id="contact" class="section">
+    <section id="gabut" class="section">
         <div>
             <h1>belum ygy</h1>
             <p>bingung mau di gimanain.</p>
@@ -292,6 +384,30 @@ nav {
        document.addEventListener('DOMContentLoaded', function() {
             showSection('home');
         });
+        const bannerImages = document.querySelector('.banner-images');
+        const images = bannerImages.querySelectorAll('img');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        let currentIndex = 0;
+
+        function updateBannerPosition() {
+            bannerImages.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        function showNextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            updateBannerPosition();
+        }
+
+        function showPrevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateBannerPosition();
+        }
+
+        nextButton.addEventListener('click', showNextImage);
+        prevButton.addEventListener('click', showPrevImage);
+
+        setInterval(showNextImage, 3000); // Ganti gambar setiap 3 detik
     </script>
 </body>
 </html>
