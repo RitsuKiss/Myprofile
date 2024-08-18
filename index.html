@@ -16,6 +16,10 @@ body {
     font-family: Arial, sans-serif;
     background:black;
     color: white;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standard */
 }
 nav {
     margin: 50px 30px;
@@ -25,8 +29,10 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: fit-content;
     z-index: 1000;
+    background: black;
+    border-radius: 20px;
 }
 .section {
     height: 100vh;
@@ -60,7 +66,6 @@ nav {
     cursor: pointer;
     font-size: 1.5rem;
 }
-/*home css v*/
 #home {
     background-image: url(Src/home.png);
     background-attachment: fixed;
@@ -114,93 +119,142 @@ nav {
 .reality {
     background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWeT0tCgjtlrsLsq_Wx6DTgeRR0Eu9-QTfoA&s);
 }
-
-.info{
-    top: 11%;
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width:100%;
-    margin: 0;
+.private{
+  display: none;
 }
-.banner-container {
-            width: 100%;
-            height: fit-content;
-            overflow: hidden;
-            position: relative;
-            align-items: center;
+.info {
+            height: 100vh;
+            width: 100vh;
         }
-
-        .banner {
-            margin: 0 20px 0;
-            border-radius: 20px;
-            max-width: 98%;
-            max-height: 400px;
-            position: relative;
-            overflow: hidden;
+        .foto{
+          background-image: url(Src/mhome.png);
+          height:100vh;
+          width: 65%;
+          left: 0;
+          position: fixed;
+          z-index: -10000;
         }
-
-        .banner-images {
-            display: flex;
-            transition: transform 1s ease-in-out;
-        }
-
-        .banner-images img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .banner-button {
+        .bg-left {
+            z-index: -1000;
+            width: 30%;
+            height: 100vh;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0);
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 10;
+            top: 0;
+            left: -15%;
+            background-color: white;
+            clip-path: polygon(0 0, 100% 0, 0 100%, 0% 100%);
         }
-
-        .prev {
-            left: 10px;
+        .bg-right {
+            display: flex;
+            z-index: -1000;
+            width: 70%;
+            height: 100vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: white;
+            clip-path: polygon(45% 0, 100% 0, 100% 100%, 0 100%);
         }
-
-        .next {
-            right: 10px;
+        .stat-container {
+            z-index: -100;
+            max-width: 50%;
+            max-height: 94%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: skew(-30deg);
+            margin: 2%;
+            overflow:hidden;
         }
-
-        main {
-            flex: 1;
+        .bgs {
+            background: black;
+            width: 80%;
+            height: 10%;
+            margin: 2%;
+        }
+        .spek h3, .stat h1, .stat h2, .stat h4, .energy h4, .special-desc h4, .Special-name h2 {
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+        .spek h3 {
+            transform: skew(30deg);
+        }
+        .stat {
+            display: flex;
+            transform: skew(30deg);
+            justify-content: start;
+            margin: 40px;
+        }
+        .stat img {
+            width: 10%;
+            height: 10%;
+            margin: 0 0 0 20px;
+        }
+        .stat h1 {
+            color: black;
+            margin: 20px;
+        }
+        .stat h4 {
+            color: black;
+        }
+        .stat h2 {
+            color: #741520;
+        }
+        .energy {
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            margin: 0 10% 0 10%;
         }
-
-        .class-container {
+        .energy h2{
+          font-size: 60px;
+        }
+        .Special-name {
+            max-width: 20%;
+            color: #741520;
             display: flex;
-            flex: 1;
-            justify-content: space-between;
+            flex-direction: column;
+            margin: -20px 0 -20px 0;
+            text-align: right;
+        }
+        .special-desc {
+            margin: -20px 0 -20px 0;
+            max-width: 80%;
+            display: flex;
+            color: black;
+            flex-direction: column;
+        }
+        .special-desc h4, .Special-name h2{
+            margin:20px;
+        }
+        .preview img{
+          margin: 0 0 0 100px;
+          max-width: 30%;
+          max-height: 30%;
+          transform: skew(30deg);
+        }
+        .file, .partner {
+            color: white;
+            background: black;
+            font-size: 20px;
+            padding: 20px 150px 20px 20px;
+        }
+        .file {
+            position: absolute;
+            left: 3%;
+            top: 40%;
+        }
+        .partner {
+            position: absolute;
+            right: 3%;
+            bottom: 3%;
         }
 
-        .class-item {
-            border-radius: 20px;
-            flex: 1; /* Mengisi ruang yang tersedia */
-            margin: 10px 10px; /* Jarak antar elemen */
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
-        }
 @media (max-width: 768px) {
   nav{
     display: flex;
     gap:1rem;
+    background: transparent;
   }
             .navbar {
                 display: flex;
@@ -281,26 +335,18 @@ nav {
     max-width: 97%;
     font-size: 14px;
 }
-
-.class-container {
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            justify-content: space-between;
+.info{
+  display: none;
 }
-.banner-container {
-            height: fit-content;
-        }
-.banner {
-            margin: 0 5px;
-            max-width: 99%;
-            height: auto;
-        }
-            
-        }
-/*home css^*/
+.private{
+  display: flex;
+  top:50%;
+  right: 50%;
+}
 
-    </style>
+
+        }
+</style>
 </head>
 <body>
     <!-- Navigation -->
@@ -310,15 +356,17 @@ nav {
         <a id="infoLink" class="nav-link" href="#" onclick="showSection('info'); return false;">Info</a>
         <a id="workLink" class="nav-link" href="#" onclick="showSection('work'); return false;">Work</a>
         <a id="gabutLink" class="nav-link" href="#" onclick="showSection('gabut'); return false;">Gabut</a>
+
     </div>
     <button class="menu" id="menu">
-            >
+            <h1>></h1>
         </button>
     </nav>
 
     <!-- Sections -->
     <section id="home" class="section active">
         <div class="home">
+          <div class="bio-container">
             <div class="date">
                 <h6>01/04</h6>
             </div>
@@ -333,33 +381,56 @@ nav {
               <button class="discord" onclick="opendc()"></button>
               <button class="reality" onclick="openrt()"></button>
               </div>
+          </div>
     </div>
     </section>
     <section id="info" class="section">
-        <div class="info">
-        <div class="banner-container">
-            <div class="banner">
-                <div class="banner-images">
-                    <img onclick="openig()" src="Src/niji1.png" alt="Gambar 1">
-                    <img onclick="openrt()" src="Src/niji2.png" alt="Gambar 2">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1ppyur3f22ov2lqNqvCD4cxeST7B7gJW5w&s" alt="Gambar 3">
+      <div class="info">
+        <div class="foto"></div>
+        <div class="bg-left"></div>
+        <div class="bg-right"></div>
+        <div class="stat-container">
+            <div class="spek">
+                <div class="bgs"><h3>Type</h3></div>
+                <div class="stat"><img src="Src/amph.png" alt="type img" /><h1>Amplifier</h1></div>
+                <div class="bgs"><h3>Energy Coeffisient</h3></div>
+                <div class="stat">
+                    <div class="energy">
+                        <h4>Dark</h4><h2>70%</h2>
+                    </div>
+                    <div class="energy">
+                        <h4>Physical</h4><h2>30%</h2>
+                    </div>
                 </div>
-                <button class="banner-button prev">&#10094;</button>
-                <button class="banner-button next">&#10095;</button>
+                <div class="bgs"><h3>Speciality</h3></div>
+                <div class="stat">
+                    <div class="Special-name">
+                        <h2>Transform</h2>
+                        <h2>Creator</h2>
+                    </div>
+                    <div class="special-desc">
+                        <h4>Ability for Transform and disguising, allowing him to sneak and ambush effectively.</h4>
+                        <h4>A special ability to create anything at will.</h4>
+                    </div>
+                </div>
+                <div class="bgs"><h3>Preview</h3></div>
+                <div class="preview"><img src="Src/preview.png" alt="type img" /></div>
             </div>
         </div>
-        <main>
-            <div class="class-container">
-                <div class="class-item">Kelas 1</div>
-                <div class="class-item">Kelas 2</div>
-                <div class="class-item">Kelas 3</div>
-            </div>
+        <div class="button-container">
+            <button class="file" type="submit" onclick="file()">File</button>
+            <button class="partner" type="submit">partner</button>
         </div>
+    </div>
+    <div class="private">
+      <h1>Yahahahah ga bisa mengorek informasi. design mobile blm nentuin gw, jadi harus pake laptop liatnya wkwkwk</h1>
+    </div>
+
     </section>
     <section id="work" class="section">
         <div>
           <h1>belum ygy</h1>
-            <p>bingung mau di gimanain.</p>
+            <p></p>
 
         </div>
     </section>
@@ -429,6 +500,10 @@ nav {
         prevButton.addEventListener('click', showPrevImage);
 
         setInterval(showNextImage, 3000); // Ganti gambar setiap 3 detik
+        document.addEventListener('selectstart', function(e) {
+          e.preventDefault();
+        });
+        
     </script>
 </body>
 </html>
