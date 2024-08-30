@@ -32,30 +32,3 @@ function showSection(sectionId) {
 document.addEventListener('DOMContentLoaded', function() {
     showSection('home');
 });
-const bannerImages = document.querySelector('.banner-images');
-const images = bannerImages.querySelectorAll('img');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
-let currentIndex = 0;
-
-function updateBannerPosition() {
-    bannerImages.style.transform = `translateX(-${currentIndex * 100}%)`;
-}
-
-function showNextImage() {
-    currentIndex = (currentIndex + 1) % images.length;
-    updateBannerPosition();
-}
-
-function showPrevImage() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateBannerPosition();
-}
-
-nextButton.addEventListener('click', showNextImage);
-prevButton.addEventListener('click', showPrevImage);
-
-setInterval(showNextImage, 3000); // Ganti gambar setiap 3 detik
-document.addEventListener('selectstart', function(e) {
-  e.preventDefault();
-});
