@@ -427,6 +427,9 @@ nav {
 .item img{
     height: 100px;
 }
+.item{
+    height: fit-content;
+}
 
 
         }
