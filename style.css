@@ -316,6 +316,7 @@ nav {
     overflow-x: scroll;
     scrollbar-color:rgba(255, 0, 255, 0.164) transparent;
     border-radius: 20px;
+    scroll-snap-type: x mandatory;
 }
 .scroll::-webkit-scrollbar{
     border-radius: 20px;
