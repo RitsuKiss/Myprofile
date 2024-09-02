@@ -285,6 +285,7 @@ nav {
     width: max-content;
     display: flex;
     gap: 1rem;
+    scroll-snap-type: x mandatory;
 }
 .item{
     position: relative;
@@ -314,7 +315,7 @@ nav {
 .scroll{ 
     width: 130vh;
     overflow-x: scroll;
-    scrollbar-color:rgba(255, 0, 255, 0.164) transparent;
+    scrollbar-color:rgba(255, 255, 255, 0.164) transparent;
     border-radius: 20px;
     scroll-snap-type: x mandatory;
 }
