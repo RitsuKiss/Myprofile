@@ -290,8 +290,7 @@ nav {
     position: relative;
     overflow-y: hidden;
     border-radius: 20px;
-    width: auto;
-    height: 300px;
+    aspect-ratio: 16 / 9;
     background: darkgrey;
 }
 .item figcaption{
